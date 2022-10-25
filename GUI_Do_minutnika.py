@@ -80,7 +80,7 @@ czydzialal = False
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
 
-bg = PhotoImage(file = "C:\\Users\\andrz\\Downloads\\bgi.png")
+bg = PhotoImage(file = "plik")
 
 
 label1 = Label( aplikacja, image = bg)
