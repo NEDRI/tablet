@@ -80,7 +80,7 @@ czydzialal = False
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
 
-bg = PhotoImage(file = "plik")
+bg = PhotoImage(file = "/home/ai/Downloads/bgi.png")
 
 
 label1 = Label( aplikacja, image = bg)
@@ -130,6 +130,6 @@ PrzyciskBack= Button(aplikacja, text="del", font=40, width=szerokosc, height=3, 
 PrzyciskBack.grid(row=5, column=prawo)
 
 PMinutnik= Button(aplikacja, text="start", font=40, width=szerokosc, height=3, command=Minutnik2)
-PMinutnik.grid(row=6, column=srodek)
+PMinutnik.grid(row=5, column=10)
 
 aplikacja.mainloop()
