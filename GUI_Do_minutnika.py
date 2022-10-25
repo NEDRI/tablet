@@ -130,6 +130,6 @@ PrzyciskBack= Button(aplikacja, text="del", font=40, width=szerokosc, height=3, 
 PrzyciskBack.grid(row=5, column=prawo)
 
 PMinutnik= Button(aplikacja, text="start", font=40, width=szerokosc, height=3, command=Minutnik2)
-PMinutnik.grid(row=6, column=srodek)
+PMinutnik.grid(row=5, column=10)
 
 aplikacja.mainloop()
