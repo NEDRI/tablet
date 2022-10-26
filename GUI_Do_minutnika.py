@@ -25,8 +25,8 @@ def Minutnik(czas):
 def Minutnik2():
 	global liczba
 	global czydzialal
-	czydzialal = True
-	if czydzialal == True:
+	if czydzialal != True:
+		czydzialal = True
 		if liczba >= 0:
 			mins, secs = divmod(liczba, 60)
 			minutniktext = '{:02d}:{:02d}'.format(mins, secs)
