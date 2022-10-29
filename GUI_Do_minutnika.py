@@ -7,7 +7,6 @@ import tkinter as tk
 import time
 
 #funkcja 
-''' #v1
 def Minutnik(czas):
 	
 	while czas:
@@ -20,19 +19,18 @@ def Minutnik(czas):
 		text_label['text']= liczba
 	
 	print('koniec czasu')
-'''
 
 def Minutnik2():
 	global liczba
 	global czydzialal
-	if czydzialal != True:
-		czydzialal = True
+	czydzialal = True
+	if czydzialal == True:
 		if liczba >= 0:
 			mins, secs = divmod(liczba, 60)
 			minutniktext = '{:02d}:{:02d}'.format(mins, secs)
 			liczba -=1
 			text_label['text']= minutniktext
-			text_label.after (1000,Minutnik2) #BLAD mozna kilka razy wcisnac start co 2
+			text_label.after (1000,Minutnik2)
 		else:
 			czydzialal=False
 	
@@ -42,9 +40,7 @@ def ustawczas(t):
 	global liczba
 	liczba+=t
 	print(liczba)
-	mins, secs = divmod(liczba, 60)
-	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
-	text_label['text']= minutniktext
+	text_label['text']= liczba
 
 def zero():
 	global liczba
@@ -58,17 +54,13 @@ def zerozero():
 	global liczba
 	liczba = liczba * 60
 	print(liczba)
-	mins, secs = divmod(liczba, 60)
-	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
-	text_label['text']= minutniktext
+	text_label['text']= liczba
 
 def liczbadel():
 	global liczba
 	liczba = 0
 	print(liczba)
-	mins, secs = divmod(liczba, 60)
-	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
-	text_label['text']= minutniktext
+	text_label['text']= liczba
 
 
 #ekran
@@ -88,17 +80,17 @@ czydzialal = False
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
 
-bg = PhotoImage(file = "D:\\Users\\aiwaszkiewicz388\\Pictures\\bgi.png")
+#bg = PhotoImage(file = "/home/ai/Downloads/bgi.png")
 
 
-label1 = Label( aplikacja, image = bg)
-label1.place(x = 0, y = 0)
+#label1 = Label( aplikacja, image = bg)
+#label1.place(x = 0, y = 0)
 
 gtext_label = Label(aplikacja, font=36, text="Wybierz czas:")
 gtext_label.grid(row=0, column=srodek)
 
 #tu ma byc czas wyswietlany
-text_label = Label(aplikacja, font=60, text=liczba)
+text_label = Label(aplikacja, font=60, text=czas)
 text_label.grid(row=1, column=srodek)
 
 Przycisk1= Button(aplikacja, text="1", font=40, width=szerokosc, height=3, command=lambda: ustawczas(1))
