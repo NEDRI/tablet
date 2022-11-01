@@ -40,7 +40,9 @@ def ustawczas(t):
 	global liczba
 	liczba+=t
 	print(liczba)
-	text_label['text']= liczba
+	mins, secs = divmod(liczba, 60)
+	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+	text_label['text']= minutniktext
 
 def zero():
 	global liczba
@@ -54,13 +56,17 @@ def zerozero():
 	global liczba
 	liczba = liczba * 60
 	print(liczba)
-	text_label['text']= liczba
+	mins, secs = divmod(liczba, 60)
+	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+	text_label['text']= minutniktext
 
 def liczbadel():
 	global liczba
 	liczba = 0
 	print(liczba)
-	text_label['text']= liczba
+	mins, secs = divmod(liczba, 60)
+	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+	text_label['text']= minutniktext
 
 
 #ekran
@@ -80,7 +86,7 @@ czydzialal = False
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
 
-#bg = PhotoImage(file = "plik")
+#bg = PhotoImage(file = "/home/ai/Downloads/bgi.png")
 
 
 #label1 = Label( aplikacja, image = bg)
