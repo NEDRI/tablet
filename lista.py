@@ -6,11 +6,28 @@ from tkinter import *
 import tkinter as tk
 import time
 from tkinter import ttk
+import sqlite3
 
 #funkcja do tła
 def _from_rgb(rgb):
 
     return "#%02x%02x%02x" % rgb 
+
+#baza danych
+baza = sqlite3.connect("/home/ai/pliki/bazyd/bazasfa")
+dane = baza.execute('''SELECT * FROM Produkt;''').fetchall()
+print ("Produkt:","   ","ilosc produktu:")
+wiersz1=dane[0]
+wiersz2=dane[1]
+# nazwa produktu
+produkt1 = wiersz1[0]
+ilosc1 = wiersz1[1]
+#ilosc produktu
+produkt2 = wiersz2[0]
+ilosc2 = wiersz2[1]
+#wypisanie 
+print(produkt1,ilosc1)
+print(produkt2,ilosc2)
 
 #ekran
 aplikacja=tk.Tk()
@@ -28,7 +45,8 @@ l=1
 sl=2
 sp=5
 p=6
-obraz= PhotoImage(file= r"D:\\Users\\hjakubowski356\\Desktop\\tak.png")
+'''obraz'''
+#obraz= PhotoImage(file= r"D:\\Users\\hjakubowski356\\Desktop\\tak.png")
 
 aplikacja.columnconfigure(0, minsize=120)
 aplikacja.rowconfigure([0, 1], minsize=50)
