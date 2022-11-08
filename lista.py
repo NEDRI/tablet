@@ -14,7 +14,7 @@ aplikacja.geometry("800x480")
 
 #zmiene
 liczba= 0
-szp=10 #szerokosc przycisku
+szp=6 #szerokosc przycisku
 wp=1
 #położenie obiektów
 l=1
