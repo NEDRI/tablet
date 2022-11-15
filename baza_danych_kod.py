@@ -2,6 +2,7 @@
 from tkinter import ttk, Button
 import tkinter as tk
 import sqlite3
+from tkinter import *
 
 # funkcja do tła
 def _from_rgb(rgb):
@@ -47,26 +48,32 @@ def zmniejsz():
     zaladujdane()
 # obraz= PhotoImage(file= r"D:\\Users\\hjakubowski356\\Desktop\\tak.png")
 # baza danych
-bazasfa="/home/ai/pliki/bazyd/bazasfa"
+bazasfa="/home/hj/programowanie/SFA/kod/bazasfa"
 # ekran
 aplikacja = tk.Tk()
 aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
+bg= PhotoImage(file="/home/hj/programowanie/SFA/grafiki/tlo_bazaa")
+# tlo wyswietlanie 
+label1= Label(aplikacja, image = bg)
+label1.place(x=0, y=0)
+
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
+ttk.Style().configure("Treeview", background="black", foreground= "white", fieldbackground="black")
 drzewo.pack()
 
-przycisk_plus = tk.Button(text="+", command=zwieksz)
-przycisk_plus .pack()
-przycisk_minus = tk.Button(text="-", command=zmniejsz)
-przycisk_minus .pack()
-przycisk_usun = tk.Button(text="X", command=usunwpis)
-przycisk_usun .pack()
-przycisk_odswiez = tk.Button(text="odswiez", command=zaladujdane)
-przycisk_odswiez .pack()
+przycisk_plus = tk.Button(text="+", command=zwieksz, width=4, height=1)
+przycisk_plus .place(x=280, y=230)
+przycisk_minus = tk.Button(text="-", command=zmniejsz, width=4, height=1)
+przycisk_minus .place(x=340, y=230)
+przycisk_usun = tk.Button(text="usuń", command=usunwpis, width=4, height=1)
+przycisk_usun .place(x=400, y=230)
+przycisk_odswiez = tk.Button(text="odswież", command=zaladujdane, width=4, height=1)
+przycisk_odswiez .place(x=460, y=230)
 
 zaladujdane()
 
