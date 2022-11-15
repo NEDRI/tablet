@@ -23,7 +23,7 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 # obraz w tle
-bg= PhotoImage(file="/home/ai/Downloads/tlomenu.png")
+bg= PhotoImage(file="/home/hj/programowanie/SFA/grafiki/tło_głowne")
 # tlo wyswietlanie 
 label1= Label(aplikacja, image = bg)
 label1.place(x=0, y=0)
@@ -39,4 +39,3 @@ Przycisk_baza.place(x=400, y=200)
 #wyswietlanie na ekran 
 time()
 aplikacja.mainloop()
-
