@@ -1,5 +1,7 @@
+from distutils.cmd import Command
 from glob import glob
-from tkinter import Label, Button
+from random import choice
+from tkinter import Tk, Label, Button
 from tkinter import *
 import tkinter as tk
 import time
@@ -82,15 +84,15 @@ prawo=9
 czas=liczba
 czydzialal = False
 
-#GUI
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
-#tlo
-bg = PhotoImage(file = "/home/ai/Downloads/tlominutnik")
+
+
+bg = PhotoImage(file = "/home/hj/programowanie/SFA/grafiki/tło_minutnik")
 
 label1 = Label( aplikacja, image = bg)
 label1.place(x = 0, y = 0)
-#menu
+
 gtext_label = Label(aplikacja, font=36, bg="black", fg="white", text="Wybierz czas:")
 gtext_label.place(x = 350, y = 50)
 
