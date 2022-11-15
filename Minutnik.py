@@ -87,56 +87,58 @@ czydzialal = False
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
 
-'''obraz w tle'''
-#bg = PhotoImage(file = "/home/ai/Downloads/bgi.png")
 
-#label1 = Label( aplikacja, image = bg)
-#label1.place(x = 0, y = 0)
+bg = PhotoImage(file = "/home/hj/programowanie/SFA/grafiki/tło_minutnik")
 
-gtext_label = Label(aplikacja, font=36, text="Wybierz czas:")
-gtext_label.grid(row=0, column=srodek)
+label1 = Label( aplikacja, image = bg)
+label1.place(x = 0, y = 0)
+
+gtext_label = Label(aplikacja, font=36, bg="black", fg="white", text="Wybierz czas:")
+gtext_label.place(x = 350, y = 50)
+
 
 #tu ma byc czas wyswietlany
-text_label = Label(aplikacja, font=60, text=czas)
-text_label.grid(row=1, column=srodek)
+text_label = Label(aplikacja, font=80, bg="black", fg="white",  text=czas)
+text_label.place(x = 380, y = 100)
 
-Przycisk1= Button(aplikacja, text="1", font=40, width=szerokosc, height=3, command=lambda: ustawczas(1))
-Przycisk1.grid(row=2, column=lewo)
+Przycisk1= Button(aplikacja, text="1", font=40, bg="black", fg="white",  width=szerokosc, height=3, command=lambda: ustawczas(1))
+Przycisk1.place(x = 210, y = 200)
 
-Przycisk2= Button(aplikacja, text="2", font=40, width=szerokosc, height=3, command=lambda: ustawczas(2))
-Przycisk2.grid(row=2, column=srodek)
+Przycisk2= Button(aplikacja, text="2", font=40, bg="black", fg="white", width=szerokosc, height=3, command=lambda: ustawczas(2))
+Przycisk2.place(x = 335, y = 200)
 
-Przycisk3= Button(aplikacja, text="3", font=40, width=szerokosc, height=3, command=lambda: ustawczas(3))
-Przycisk3.grid(row=2, column=prawo)
+Przycisk3= Button(aplikacja, text="3", font=40, bg="black", fg="white", width=szerokosc, height=3, command=lambda: ustawczas(3))
+Przycisk3.place(x = 460, y = 200)
 
-Przycisk4= Button(aplikacja, text="4", font=40, width=szerokosc, height=3, command=lambda: ustawczas(4))
-Przycisk4.grid(row=3, column=lewo)
+Przycisk4= Button(aplikacja, text="4", font=40, bg="black", fg="white",  width=szerokosc, height=3, command=lambda: ustawczas(4))
+Przycisk4.place(x = 210, y = 270)
 
-Przycisk5= Button(aplikacja, text="5", font=40, width=szerokosc, height=3, command=lambda: ustawczas(5))
-Przycisk5.grid(row=3, column=srodek)
+Przycisk5= Button(aplikacja, text="5", font=40, bg="black", fg="white", width=szerokosc, height=3, command=lambda: ustawczas(5))
+Przycisk5.place(x = 335, y = 270)
 
-Przycisk6= Button(aplikacja, text="6", font=40, width=szerokosc, height=3, command=lambda: ustawczas(6))
-Przycisk6.grid(row=3, column=prawo)
+Przycisk6= Button(aplikacja, text="6", font=40, bg="black", fg="white",  width=szerokosc, height=3, command=lambda: ustawczas(6))
+Przycisk6.place(x = 460, y = 270)
 
-Przycisk7= Button(aplikacja, text="7", font=40, width=szerokosc, height=3, command=lambda: ustawczas(7))
-Przycisk7.grid(row=4, column=lewo)
+Przycisk7= Button(aplikacja, text="7", font=40, bg="black", fg="white",  width=szerokosc, height=3, command=lambda: ustawczas(7))
+Przycisk7.place(x = 210, y = 340)
 
-Przycisk8= Button(aplikacja, text="8", font=40, width=szerokosc, height=3, command=lambda: ustawczas(8))
-Przycisk8.grid(row=4, column=srodek)
+Przycisk8= Button(aplikacja, text="8", font=40, bg="black", fg="white",  width=szerokosc, height=3, command=lambda: ustawczas(8))
+Przycisk8.place(x = 335, y = 340)
 
-Przycisk9= Button(aplikacja, text="9", font=40, width=szerokosc, height=3, command=lambda: ustawczas(9))
-Przycisk9.grid(row=4, column=prawo)
+Przycisk9= Button(aplikacja, text="9", font=40, bg="black", fg="white", width=szerokosc, height=3, command=lambda: ustawczas(9))
+Przycisk9.place(x = 460, y = 340)
 
-Przycisk00= Button(aplikacja, text="00s", font=40, width=szerokosc, height=3, command=zerozero)
-Przycisk00.grid(row=5, column=lewo)
+Przycisk00= Button(aplikacja, text="00s", font=40, bg="black", fg="white", width=szerokosc, height=3, command=zerozero)
+Przycisk00.place(x = 210, y = 410)
 
-Przycisk0= Button(aplikacja, text="0", font=40, width=szerokosc, height=3, command=zero)
-Przycisk0.grid(row=5, column=srodek)
+Przycisk0= Button(aplikacja, text="0", font=40, bg="black", fg="white", width=szerokosc, height=3, command=zero)
+Przycisk0.place(x = 335, y = 410)
 
-PrzyciskBack= Button(aplikacja, text="del", font=40, width=szerokosc, height=3, command=liczbadel)
-PrzyciskBack.grid(row=5, column=prawo)
+PrzyciskBack= Button(aplikacja, text="del", font=40, bg="black", fg="white", width=szerokosc, height=3, command=liczbadel)
+PrzyciskBack.place(x = 460, y = 410)
 
-PMinutnik= Button(aplikacja, text="start", font=40, width=szerokosc, height=3, command=Minutnik2)
-PMinutnik.grid(row=5, column=10)
+PMinutnik= Button(aplikacja, text="start", font=40, bg="black", fg="white", width=szerokosc, height=3, command=Minutnik2)
+PMinutnik.place(x = 585, y = 410)
+
 
 aplikacja.mainloop()
