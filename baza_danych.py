@@ -55,10 +55,10 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
-bg= PhotoImage(file="/media/hj/tak/projekt_SFA/grafiki/tlo_bazaa")
+#bg= PhotoImage(file="/media/hj/tak/projekt_SFA/grafiki/tlo_bazaa")
 # tlo wyswietlanie 
-label1= Label(aplikacja, image = bg)
-label1.place(x=0, y=0)
+#label1= Label(aplikacja, image = bg)
+#label1.place(x=0, y=0)
 
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
@@ -77,5 +77,7 @@ przycisk_odswiez .place(x=460, y=265)
 description = tk.Label(aplikacja, text="Dodaj produkt:").pack()
 name = tk.Entry(aplikacja,width=40)
 name.pack()
+przycisk_dodaj=tk.Button(text="dodaj",  width=4, height=1)
+przycisk_dodaj .place(x=520, y=240)
 
 aplikacja.mainloop()
