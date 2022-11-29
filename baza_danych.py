@@ -8,6 +8,10 @@ from tkinter import *
 def _from_rgb(rgb):
     return "#%02x%02x%02x" % rgb
 
+def napisz():
+    wpisdobazy = wpis.get()
+    print(wpisdobazy)
+
 def zaladujdane():
     baza = sqlite3.connect(bazasfa)
     dane = baza.execute("SELECT * FROM Produkt;").fetchall()
@@ -16,6 +20,17 @@ def zaladujdane():
     for wiersz_z_bazy in dane:
         print("wrzucam wiersz_z_bazy: ", wiersz_z_bazy)
         drzewo.insert("", tk.END, values=wiersz_z_bazy)
+
+
+def dodawanie():
+    wpisdobazy = wpis.get()
+    print (wpisdobazy)
+    baza = sqlite3.connect(bazasfa)
+    print("insert into Produkt values ("+ wpisdobazy +",1);")
+    baza.execute('insert into Produkt values ("'+ wpisdobazy +'",1);')
+    baza.commit()
+    zaladujdane()
+
 
 def usunwpis():
     wybrany_wiersz = drzewo.selection()[0]
@@ -46,24 +61,29 @@ def zmniejsz():
         baza.execute("UPDATE Produkt SET iloscp = iloscp - 1 WHERE produkt ='" + wybrany_wiersz_bazy + "'")
         baza.commit()
     zaladujdane()
-  #obraz= PhotoImage(file= r"D:\\Users\\hjakubowski356\\Desktop\\tak.png")
-  #baza danych
-bazasfa="/media/hj/tak/projekt_SFA/kod/bazasfa"
+
+# baza danych
+bazasfa="/home/ai/pliki/bazyd/bazasfa"
 # ekran
 aplikacja = tk.Tk()
 aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
-
-#bg= PhotoImage(file="/media/hj/tak/projekt_SFA/grafiki/tlo_bazaa")
+bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlo_baza.png")
 # tlo wyswietlanie 
-#label1= Label(aplikacja, image = bg)
-#label1.place(x=0, y=0)
+label1= Label(aplikacja, image = bg)
+label1.place(x=0, y=0)
 
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
 ttk.Style().configure("Treeview", background="black", foreground= "white", fieldbackground="black")
+
+sb = Scrollbar(orient=VERTICAL)
+
+drzewo.config(yscrollcommand=sb.set)
+sb.config(command=drzewo.yview)
+
 drzewo.pack()
 
 przycisk_plus = tk.Button(text="+", command=zwieksz, width=4, height=1)
@@ -75,9 +95,13 @@ przycisk_usun .place(x=400, y=265)
 przycisk_odswiez = tk.Button(text="odswież", command=zaladujdane, width=4, height=1)
 przycisk_odswiez .place(x=460, y=265)
 description = tk.Label(aplikacja, text="Dodaj produkt:").pack()
-name = tk.Entry(aplikacja,width=40)
-name.pack()
-przycisk_dodaj=tk.Button(text="dodaj",  width=4, height=1)
+wpis = tk.Entry(aplikacja,width=40)
+wpis.pack()
+przycisk_dodaj=tk.Button(text="dodaj",  width=4, height=1, command=dodawanie)
 przycisk_dodaj .place(x=520, y=240)
+
+
+
+zaladujdane()
 
 aplikacja.mainloop()
