@@ -21,7 +21,6 @@ def zaladujdane():
         print("wrzucam wiersz_z_bazy: ", wiersz_z_bazy)
         drzewo.insert("", tk.END, values=wiersz_z_bazy)
 
-
 def dodawanie():
     wpisdobazy = wpis.get()
     print (wpisdobazy)
@@ -30,7 +29,6 @@ def dodawanie():
     baza.execute('insert into Produkt values ("'+ wpisdobazy +'",1);')
     baza.commit()
     zaladujdane()
-
 
 def usunwpis():
     wybrany_wiersz = drzewo.selection()[0]
@@ -99,8 +97,6 @@ wpis = tk.Entry(aplikacja,width=40)
 wpis.pack()
 przycisk_dodaj=tk.Button(text="dodaj",  width=4, height=1, command=dodawanie)
 przycisk_dodaj .place(x=520, y=240)
-
-
 
 zaladujdane()
 
