@@ -62,7 +62,7 @@ def zmniejsz():
 
 # baza danych
 bazasfa="/home/ai/pliki/bazyd/bazasfa"
-# ekran
+# ekrann
 aplikacja = tk.Tk()
 aplikacja.title("SFA")
 aplikacja.geometry("800x480")
