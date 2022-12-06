@@ -1,5 +1,4 @@
-# from tkinter import Tk, Label, Button
-from tkinter import ttk, Button
+from tkinter import ttk
 import tkinter as tk
 import sqlite3
 from tkinter import *
@@ -60,14 +59,17 @@ def zmniejsz():
         baza.commit()
     zaladujdane()
 
-# baza danych
-bazasfa="/home/ai/pliki/bazyd/bazasfa"
-# ekrann
+# ekran
 aplikacja = tk.Tk()
 aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
-bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlo_baza.png")
+
+''''''
+bazasfa="D:\GITfld\\tablet\\bazasfa"
+bg= PhotoImage(file="D:\GITfld\\tablet\\tlo_baza.png")
+''''''
+
 # tlo wyswietlanie 
 label1= Label(aplikacja, image = bg)
 label1.place(x=0, y=0)

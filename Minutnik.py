@@ -1,7 +1,5 @@
-from distutils.cmd import Command
 from glob import glob
-from random import choice
-from tkinter import Tk, Label, Button
+from tkinter import Label, Button
 from tkinter import *
 import tkinter as tk
 import time
@@ -34,8 +32,6 @@ def Minutnik2():
 		else:
 			czydzialal=False
 			liczba = 0
-	
-
 
 def ustawczas(t):
 	global liczba
@@ -69,7 +65,6 @@ def liczbadel():
 	minutniktext = '{:02d}:{:02d}'.format(mins, secs)
 	text_label['text']= minutniktext
 
-
 #ekran
 aplikacja=tk.Tk()
 aplikacja.title("SFA")
@@ -84,18 +79,20 @@ prawo=9
 czas=liczba
 czydzialal = False
 
+#GUI
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
+#tlo
 
-
-bg = PhotoImage(file = "/home/hj/programowanie/SFA/grafiki/tło_minutnik")
+''''''
+bg = PhotoImage(file = "/home/ai/pliki/obrazytab/tlominutnik.png")
+''''''
 
 label1 = Label( aplikacja, image = bg)
 label1.place(x = 0, y = 0)
-
+#menu
 gtext_label = Label(aplikacja, font=36, bg="black", fg="white", text="Wybierz czas:")
 gtext_label.place(x = 350, y = 50)
-
 
 #tu ma byc czas wyswietlany
 text_label = Label(aplikacja, font=80, bg="black", fg="white",  text=czas)
@@ -139,6 +136,5 @@ PrzyciskBack.place(x = 460, y = 410)
 
 PMinutnik= Button(aplikacja, text="start", font=40, bg="black", fg="white", width=szerokosc, height=3, command=Minutnik2)
 PMinutnik.place(x = 585, y = 410)
-
 
 aplikacja.mainloop()

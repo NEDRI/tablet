@@ -15,12 +15,8 @@ aplikacja.title(" SFA ")
 aplikacja.geometry('800x480')
 aplikacja.configure(bg=_from_rgb((0, 0, 0)))
 
-
-
 gtext_label = Label(aplikacja, font= 36)
 gtext_label.place(x= 370, y=30)
-
-
 
 tabGeneral = ttk.Notebook(aplikacja)
 tab3_info = ttk.Frame(aplikacja)
@@ -28,6 +24,7 @@ tabGeneral.add(tab3_info, text='minutnik')
 tabGeneral.insert(0, tab3_info, text='Główny') 
 tabGeneral.pack(expand=1, fill="both")
 tabGeneral.place(x=300, y=450)
+
 def time(): 
 
     string = strftime('%H:%M:%S') 
@@ -47,7 +44,6 @@ tabGeneral.add(tab1_log, text='minutnik')
 
 tab2_gra = ttk.Frame(aplikacja)
 tabGeneral.add(tab2_gra, text='produkty')
-
 
 time()
 aplikacja.mainloop()

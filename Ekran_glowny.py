@@ -12,9 +12,7 @@ def _from_rgb(rgb):
 def time(): 
 
     string = strftime('%H:%M:%S') 
-
     gtext_label.config(text = string, bg="black", fg="white") 
-
     gtext_label.after(1000, time)
 
 # ekran 
@@ -23,7 +21,11 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 # obraz w tle
-bg= PhotoImage(file="/home/hj/programowanie/SFA/grafiki/tło_głowne")
+
+''''''
+bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlomenu.png")
+''''''
+
 # tlo wyswietlanie 
 label1= Label(aplikacja, image = bg)
 label1.place(x=0, y=0)
@@ -39,3 +41,4 @@ Przycisk_baza.place(x=400, y=200)
 #wyswietlanie na ekran 
 time()
 aplikacja.mainloop()
+
