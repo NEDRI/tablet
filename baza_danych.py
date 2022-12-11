@@ -2,6 +2,7 @@ from tkinter import ttk
 import tkinter as tk
 import sqlite3
 from tkinter import *
+import customtkinter
 
 # funkcja do tła
 def _from_rgb(rgb):
@@ -60,21 +61,23 @@ def zmniejsz():
     zaladujdane()
 
 # ekran
-aplikacja = tk.Tk()
+
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("blue")
+
+aplikacja = customtkinter.CTk()
 aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
-''''''
-bazasfa="D:\GITfld\\tablet\\bazasfa"
-bg= PhotoImage(file="D:\GITfld\\tablet\\tlo_baza.png")
-''''''
+bazasfa="/home/ai/pliki/bazyd/bazasfa"
+bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlo_baza.png")
 
 # tlo wyswietlanie 
-label1= Label(aplikacja, image = bg)
+label1= customtkinter.CTkLabel(aplikacja, image = bg)
 label1.place(x=0, y=0)
 
-drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
+drzewo = customtkinter.CTk(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
 ttk.Style().configure("Treeview", background="black", foreground= "white", fieldbackground="black")
@@ -86,18 +89,18 @@ sb.config(command=drzewo.yview)
 
 drzewo.pack()
 
-przycisk_plus = tk.Button(text="+", command=zwieksz, width=4, height=1)
+przycisk_plus = customtkinter.CTkButton(master=aplikacja,text="+", command=zwieksz, width=4, height=1)
 przycisk_plus .place(x=280, y=265)
-przycisk_minus = tk.Button(text="-", command=zmniejsz, width=4, height=1)
+przycisk_minus = customtkinter.CTkButton(master=aplikacja,text="-", command=zmniejsz, width=4, height=1)
 przycisk_minus .place(x=340, y=265)
-przycisk_usun = tk.Button(text="usuń", command=usunwpis, width=4, height=1)
+przycisk_usun = customtkinter.CTkButton(master=aplikacja,text="usuń", command=usunwpis, width=4, height=1)
 przycisk_usun .place(x=400, y=265)
-przycisk_odswiez = tk.Button(text="odswież", command=zaladujdane, width=4, height=1)
+przycisk_odswiez = customtkinter.CTkButton(master=aplikacja,text="odswież", command=zaladujdane, width=4, height=1)
 przycisk_odswiez .place(x=460, y=265)
-description = tk.Label(aplikacja, text="Dodaj produkt:").pack()
-wpis = tk.Entry(aplikacja,width=40)
+description = customtkinter.CTkLabel(aplikacja, text="Dodaj produkt:").pack()
+wpis = customtkinter.CTkEntry(aplikacja,width=40)
 wpis.pack()
-przycisk_dodaj=tk.Button(text="dodaj",  width=4, height=1, command=dodawanie)
+przycisk_dodaj=customtkinter.CTkButton(master=aplikacja,text="dodaj",  width=4, height=1, command=dodawanie)
 przycisk_dodaj .place(x=520, y=240)
 
 zaladujdane()

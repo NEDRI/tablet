@@ -46,14 +46,11 @@ app = customtkinter.CTk()
 app.geometry("400x780")
 app.title("CustomTkinter simple_example.py")
 
-
 def button_callback():
     print("Button click", combobox_1.get())
 
-
 def slider_callback(value):
     progressbar_1.set(value)
-
 
 frame_1 = customtkinter.CTkFrame(master=app)
 frame_1.pack(pady=20, padx=60, fill="both", expand=True)
