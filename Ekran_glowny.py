@@ -27,9 +27,9 @@ aplikacja.geometry("800x480")
 
 #zkladki
 tabview_1 = customtkinter.CTkTabview(master=aplikacja, width=200, height=70)
-tabview_1.pack(pady=10, padx=10)
-tabview_1.add("CTkTabview")
-tabview_1.add("Tab 2")
+tabview_1.place(x=300,y=100)
+tabview_1.add("Produkty")
+tabview_1.add("Minutnik")
 #zegar 
 gtext_label = Label(aplikacja, font= 36)
 gtext_label.place(x= 370, y=30)
