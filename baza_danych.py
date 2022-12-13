@@ -70,7 +70,7 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
-bazasfa="E:\\Praktyki\\kod\\bazasfa"
+bazasfa="/home/ai/gitfl/tablet/bazasfa"
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
