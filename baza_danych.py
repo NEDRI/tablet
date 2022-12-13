@@ -70,13 +70,14 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
-bazasfa="/home/ai/gitfl/tablet/bazasfa"
-bg= PhotoImage(file="/home/ai/gitfl/tablet/tlo_baza.png")
+bazasfa="E:\\projekt_SFA\\kod\\bazasfa"
+'''
+bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlo_baza.png")
 
 # tlo wyswietlanie 
 label1= customtkinter.CTkLabel(aplikacja, image = bg)
 label1.place(x=0, y=0)
-
+'''
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
@@ -89,19 +90,19 @@ sb.config(command=drzewo.yview)
 
 drzewo.pack()
 
-przycisk_plus = customtkinter.CTkButton(master=aplikacja,text="+", command=zwieksz, width=4, height=1)
-przycisk_plus .place(x=280, y=265)
-przycisk_minus = customtkinter.CTkButton(master=aplikacja,text="-", command=zmniejsz, width=4, height=1)
-przycisk_minus .place(x=340, y=265)
-przycisk_usun = customtkinter.CTkButton(master=aplikacja,text="usuń", command=usunwpis, width=4, height=1)
-przycisk_usun .place(x=400, y=265)
-przycisk_odswiez = customtkinter.CTkButton(master=aplikacja,text="odswież", command=zaladujdane, width=4, height=1)
-przycisk_odswiez .place(x=460, y=265)
+przycisk_plus = customtkinter.CTkButton(master=aplikacja,text="+", command=zwieksz, width=35, height=30)
+przycisk_plus .place(x=280, y=285)
+przycisk_minus = customtkinter.CTkButton(master=aplikacja,text="-", command=zmniejsz, width=35, height=30)
+przycisk_minus .place(x=315, y=285)
+przycisk_usun = customtkinter.CTkButton(master=aplikacja,text="usuń", command=usunwpis, width=35, height=30)
+przycisk_usun .place(x=350, y=285)
+przycisk_odswiez = customtkinter.CTkButton(master=aplikacja,text="odswież", command=zaladujdane, width=35, height=30)
+przycisk_odswiez .place(x=393, y=285)
 description = customtkinter.CTkLabel(aplikacja, text="Dodaj produkt:").pack()
-wpis = customtkinter.CTkEntry(aplikacja,width=40)
+wpis = customtkinter.CTkEntry(aplikacja,width=80)
 wpis.pack()
-przycisk_dodaj=customtkinter.CTkButton(master=aplikacja,text="dodaj",  width=4, height=1, command=dodawanie)
-przycisk_dodaj .place(x=520, y=240)
+przycisk_dodaj=customtkinter.CTkButton(master=aplikacja,text="dodaj",  width=35, height=30, command=dodawanie)
+przycisk_dodaj .place(x=454, y=285)
 
 zaladujdane()
 
