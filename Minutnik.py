@@ -92,14 +92,17 @@ czydzialal = False
 #GUI
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
+#tlo
+
+
 
 #menu
 gtext_label = customtkinter.CTkLabel(aplikacja,text="Wybierz czas:")
-gtext_label.place(x = 350, y = 50)
+gtext_label.place(x = 350, y = 40)
 
 #tu ma byc czas wyswietlany
-text_label = Label(aplikacja, font=80, bg=_from_rgb((555, 555, 555)), fg="white",  text=czas)
-text_label.place(x = 380, y = 100)
+text_label = Label(aplikacja, font=100, bg=_from_rgb((555, 555, 555)), fg="white",  text=czas)
+text_label.place(x = 380, y = 70)
 
 Przycisk1= customtkinter.CTkButton(aplikacja, text="1",width=szerokosc, height=wys, command=lambda: ustawczas(1))
 Przycisk1.place(x = 255, y = 200)
@@ -139,5 +142,8 @@ PrzyciskBack.place(x = 445, y = 410)
 
 PMinutnik= customtkinter.CTkButton(aplikacja, text="start",width=szerokosc, height=wys, command=Minutnik2)
 PMinutnik.place(x = 540, y = 410)
+
+PrzyciskPowrot=customtkinter.CTkButton(aplikacja, text="<-",width=50, height=40)
+PrzyciskPowrot.place(x = 0, y = 0)
 
 aplikacja.mainloop()
