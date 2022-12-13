@@ -1,3 +1,4 @@
+import customtkinter
 import time
 from tkinter import Label, Button
 import tkinter as tk
@@ -12,33 +13,28 @@ def _from_rgb(rgb):
 def time(): 
 
     string = strftime('%H:%M:%S') 
-    gtext_label.config(text = string, bg="black", fg="white") 
+    gtext_label.config(text = string, bg=_from_rgb((555, 555, 555)), fg="white") 
     gtext_label.after(1000, time)
 
 # ekran 
-aplikacja = tk.Tk()
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("blue")
+
+aplikacja = customtkinter.CTk()
 aplikacja.title("SFA")
 aplikacja.geometry("800x480")
-aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 # obraz w tle
 
-''''''
-bg= PhotoImage(file="/home/ai/gitfl/tablet/tlomenu.png")
-''''''
 
-# tlo wyswietlanie 
-label1= Label(aplikacja, image = bg)
-label1.place(x=0, y=0)
 #zegar 
 gtext_label = Label(aplikacja, font= 36)
 gtext_label.place(x= 370, y=30)
 #przycisk  do minutnika
-Przycisk_minutnik=Button(aplikacja, text="Minutnik", bg="black", fg="white", font=36, width=7, height=2)
-Przycisk_minutnik.place(x=300, y=200)
+przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Minutnik", width=80, height=55)
+przycisk_min .place(x=323, y=220)
 #przycisk do produkty
-Przycisk_baza=Button(aplikacja, text="produkty", bg="black", fg="white", font=36, width=7, height=2)
-Przycisk_baza.place(x=400, y=200)
+przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Produkty", width=80, height=55)
+przycisk_min .place(x=405, y=220)
 #wyswietlanie na ekran 
 time()
 aplikacja.mainloop()
-
