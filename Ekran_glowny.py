@@ -23,7 +23,7 @@ aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 # obraz w tle
 
 ''''''
-bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlomenu.png")
+bg= PhotoImage(file="/home/ai/gitfl/tablet/tlomenu.png")
 ''''''
 
 # tlo wyswietlanie 

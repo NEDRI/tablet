@@ -85,7 +85,7 @@ aplikacja.rowconfigure([0, 1], minsize=100)
 #tlo
 
 ''''''
-bg = PhotoImage(file = "/home/ai/pliki/obrazytab/tlominutnik.png")
+bg = PhotoImage(file = "/home/ai/gitfl/tablet/tlominutnik.png")
 ''''''
 
 label1 = Label( aplikacja, image = bg)
