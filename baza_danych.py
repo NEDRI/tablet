@@ -70,14 +70,14 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
-bazasfa="E:\\projekt_SFA\\kod\\bazasfa"
-'''
-bg= PhotoImage(file="/home/ai/pliki/obrazytab/tlo_baza.png")
+bazasfa="/home/ai/gitfl/gitfl/tablet/bazasfa"
+
+bg= PhotoImage(file="/home/ai/gitfl/gitfl/tablet/tlo_baza.png")
 
 # tlo wyswietlanie 
 label1= customtkinter.CTkLabel(aplikacja, image = bg)
 label1.place(x=0, y=0)
-'''
+
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
