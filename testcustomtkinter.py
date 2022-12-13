@@ -35,7 +35,7 @@ checkbox.pack(pady=12, padx=10)
 
 okno.mainloop()
 '''
-
+'''
 import tkinter
 import customtkinter
 
@@ -265,4 +265,3 @@ class App(customtkinter.CTk):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
-'''

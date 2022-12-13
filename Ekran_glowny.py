@@ -25,10 +25,15 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 # obraz w tle
 
-
+#zkladki
+tabview_1 = customtkinter.CTkTabview(master=aplikacja, width=200, height=70)
+tabview_1.pack(pady=10, padx=10)
+tabview_1.add("CTkTabview")
+tabview_1.add("Tab 2")
 #zegar 
 gtext_label = Label(aplikacja, font= 36)
 gtext_label.place(x= 370, y=30)
+
 #przycisk  do minutnika
 przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Minutnik", width=80, height=55)
 przycisk_min .place(x=323, y=220)
