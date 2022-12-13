@@ -92,9 +92,6 @@ czydzialal = False
 #GUI
 aplikacja.columnconfigure(0, minsize=225)
 aplikacja.rowconfigure([0, 1], minsize=100)
-#tlo
-
-
 
 #menu
 gtext_label = customtkinter.CTkLabel(aplikacja,text="Wybierz czas:")
