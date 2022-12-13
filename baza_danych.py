@@ -70,7 +70,7 @@ aplikacja.title("SFA")
 aplikacja.geometry("800x480")
 aplikacja.configure(bg=_from_rgb((240, 248, 255)))
 
-bazasfa="/home/ai/gitfl/gitfl/tablet/bazasfa"
+bazasfa="E:\\projekt_SFA\\kod\\bazasfa"
 drzewo = ttk.Treeview(aplikacja, columns=("kolumna1", "kolumna2"), show="headings")
 drzewo.heading("#1", text="Nazwa produktu")
 drzewo.heading("#2", text="Ilość produktu")
@@ -96,6 +96,8 @@ wpis = customtkinter.CTkEntry(aplikacja,width=80)
 wpis.pack()
 przycisk_dodaj=customtkinter.CTkButton(master=aplikacja,text="dodaj",  width=35, height=30, command=dodawanie)
 przycisk_dodaj.place(x=454, y=285)
+przycisk_powrot=customtkinter.CTkButton(master=aplikacja,text="<-",  width=35, height=30)
+przycisk_powrot.place(x=0, y=0)
 
 zaladujdane()
 
