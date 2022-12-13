@@ -10,21 +10,7 @@ import customtkinter
 def _from_rgb(rgb):
     return "#%02x%02x%02x" % rgb
 
-
-def Minutnik(czas):
-	
-	while czas:
-		mins, secs = divmod(czas, 60)
-		minutnik = '{:02d}:{:02d}'.format(mins, secs)
-		print(minutnik, end="\r")
-		time.sleep(1)
-		czas -= 1
-		global liczba
-		text_label['text']= liczba
-	
-	print('koniec czasu')
-
-def Minutnik2():
+def Minutnik():
 	global liczba
 	global czydzialal
 	czydzialal = True
@@ -34,7 +20,7 @@ def Minutnik2():
 			minutniktext = '{:02d}:{:02d}'.format(mins, secs)
 			liczba -=1
 			text_label['text']= minutniktext
-			text_label.after (1000,Minutnik2)
+			text_label.after (1000,Minutnik)
 		else:
 			czydzialal=False
 			liczba = 0
@@ -140,7 +126,7 @@ Przycisk0.place(x = 350, y = 410)
 PrzyciskBack= customtkinter.CTkButton(aplikacja, text="del",width=szerokosc, height=wys, command=liczbadel)
 PrzyciskBack.place(x = 445, y = 410)
 
-PMinutnik= customtkinter.CTkButton(aplikacja, text="start",width=szerokosc, height=wys, command=Minutnik2)
+PMinutnik= customtkinter.CTkButton(aplikacja, text="start",width=szerokosc, height=wys, command=Minutnik)
 PMinutnik.place(x = 540, y = 410)
 
 PrzyciskPowrot=customtkinter.CTkButton(aplikacja, text="<-",width=50, height=40)
