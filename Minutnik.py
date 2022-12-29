@@ -6,7 +6,7 @@ import time
 import customtkinter
 
 #funkcja 
-# funkcja do koloru tła
+#do koloru tla
 def _from_rgb(rgb):
     return "#%02x%02x%02x" % rgb
 
