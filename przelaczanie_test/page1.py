@@ -1,3 +1,6 @@
+
+#Strona glowna
+
 from tkinter import *
 import customtkinter
 import time
@@ -8,11 +11,11 @@ from tkinter import *
 from time import strftime 
 from tkinter import *
 
-def nextPage():
+def Karta_minutnik():
     aplikacja.destroy()
     import page2
 
-def prevPage():
+def Karta_produkty():
     aplikacja.destroy()
     import page3
 
@@ -40,10 +43,10 @@ gtext_label = Label(aplikacja, font= 36)
 gtext_label.place(x= 370, y=30)
 
 #przycisk  do minutnika
-przycisk_min = customtkinter.CTkButton(master=aplikacja,text="nas", width=80, height=55, command=nextPage)
+przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Minutnik", width=80, height=55, command=Karta_minutnik)
 przycisk_min .place(x=323, y=220)
 #przycisk do produkty
-przycisk_min = customtkinter.CTkButton(master=aplikacja,text="pop", width=80, height=55,command=prevPage)
+przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Produkty", width=80, height=55,command=Karta_produkty)
 przycisk_min .place(x=405, y=220)
 #wyswietlanie na ekran 
 time()

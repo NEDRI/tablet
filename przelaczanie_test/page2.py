@@ -1,3 +1,6 @@
+
+#Minutnik
+
 from tkinter import *
 from glob import glob
 from tkinter import Label, Button
@@ -6,7 +9,7 @@ import tkinter as tk
 import time
 import customtkinter
 
-def prevPage():
+def Karta_stronaglowna():
     aplikacja.destroy()
     import page1
 
@@ -131,7 +134,7 @@ PrzyciskBack.place(x = 445, y = 410)
 PMinutnik= customtkinter.CTkButton(aplikacja, text="start",width=szerokosc, height=wys, command=Minutnik)
 PMinutnik.place(x = 540, y = 410)
 
-PrzyciskPowrot=customtkinter.CTkButton(aplikacja, text="<-",width=50, height=40,command=prevPage)
+PrzyciskPowrot=customtkinter.CTkButton(aplikacja, text="<-",width=50, height=40,command=Karta_stronaglowna)
 PrzyciskPowrot.place(x = 0, y = 0)
 
 aplikacja.mainloop()

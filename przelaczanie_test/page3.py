@@ -1,10 +1,13 @@
+
+#Baza produktow
+
 from tkinter import ttk
 import tkinter as tk
 import sqlite3
 from tkinter import *
 import customtkinter
 
-def nextPage():
+def Karta_stronaglowna():
     aplikacja.destroy()
     import page1
 # funkcja do tła
@@ -99,7 +102,7 @@ wpis = customtkinter.CTkEntry(aplikacja,width=80)
 wpis.pack()
 przycisk_dodaj=customtkinter.CTkButton(master=aplikacja,text="dodaj",  width=35, height=30, command=dodawanie)
 przycisk_dodaj.place(x=454, y=285)
-przycisk_Powrot=customtkinter.CTkButton(master=aplikacja,text="<-",  width=35, height=30,command=nextPage)
+przycisk_Powrot=customtkinter.CTkButton(master=aplikacja,text="<-",  width=35, height=30,command=Karta_stronaglowna)
 przycisk_Powrot.place(x=0, y=0)
 
 zaladujdane()
