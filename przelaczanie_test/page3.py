@@ -4,6 +4,9 @@ import sqlite3
 from tkinter import *
 import customtkinter
 
+def nextPage():
+    aplikacja.destroy()
+    import page1
 # funkcja do tła
 def _from_rgb(rgb):
     return "#%02x%02x%02x" % rgb
@@ -96,7 +99,7 @@ wpis = customtkinter.CTkEntry(aplikacja,width=80)
 wpis.pack()
 przycisk_dodaj=customtkinter.CTkButton(master=aplikacja,text="dodaj",  width=35, height=30, command=dodawanie)
 przycisk_dodaj.place(x=454, y=285)
-przycisk_Powrot=customtkinter.CTkButton(master=aplikacja,text="<-",  width=35, height=30)
+przycisk_Powrot=customtkinter.CTkButton(master=aplikacja,text="<-",  width=35, height=30,command=nextPage)
 przycisk_Powrot.place(x=0, y=0)
 
 zaladujdane()
