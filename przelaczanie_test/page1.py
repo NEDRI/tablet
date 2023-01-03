@@ -43,7 +43,7 @@ gtext_label = Label(aplikacja, font= 36)
 gtext_label.place(x= 370, y=30)
 
 #przycisk  do minutnika
-przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Minutnik", width=80, height=55, command=Karta_minutnik)
+przycisk_min = customtkinter.CTkButton(aplikacja,text="Minutnik", width=80, height=55, command=Karta_minutnik)
 przycisk_min .place(x=323, y=220)
 #przycisk do produkty
 przycisk_min = customtkinter.CTkButton(master=aplikacja,text="Produkty", width=80, height=55,command=Karta_produkty)
