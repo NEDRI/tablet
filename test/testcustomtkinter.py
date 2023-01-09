@@ -1,5 +1,5 @@
 import customtkinter
-
+#nie usuwac
 ''''
 zeby dzialalo GUI z bibloteka trzeba w cmd:
 pip install customtkinter   
