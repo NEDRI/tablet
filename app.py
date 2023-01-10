@@ -70,7 +70,7 @@ def produkty_do_stronaglowna():
 def _from_rgb(rgb):
     return "#%02x%02x%02x" % rgb
 
-#APP1--------------------------------------------
+#APP1--------------------------------------------EKRAN GLOWNY
 def app1_zegar(tekst):
     aktualnyczas = strftime('%H:%M:%S')
     print(aktualnyczas)
@@ -94,7 +94,7 @@ def app1_pokaz(ramka):
     app1_zegar(zegar_label)
     ramka.pack()
 
-#APP2--------------------------------------------
+#APP2--------------------------------------------MINUTNIK
 liczba = None
 czydziala = None
 # wyswietlanie czasu
@@ -212,7 +212,7 @@ def app2_pokaz(ramka):
     ramka.pack()
 
 
-#APP3--------------------------------------------
+#APP3--------------------------------------------BAZA DANYCH
 bazasfa="bazasfa"
 drzewo = None
 przycisk_plus = None
