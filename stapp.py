@@ -8,39 +8,47 @@ import sqlite3
 
 def stronaglowna_do_minutnik():
     global app2
+    # aplikacja.destroy()
+    # import page3
     print("stronaglowna_do_minutnik destroy")
     app1.destroy()
+    # app1.forget()
     app2 = None
     app2 = customtkinter.CTkFrame(root, width=800, height=480)
     app2_pokaz(app2)
-
+    # app2.pack()
+    # app2.pack()
+    # app2.tkraise()
 
 def stronaglowna_do_produkty():
     global drzewo
     print("stronaglowna_do_produkty destroy")
     app1.destroy()
+    # app1.forget()
     app3_pokaz(root)
+    # app3.pack()
+    # app3.tkraise()
+    # drzewo.pack()
 
-def minutnik_do_stronaglowna(text_label):
+def minutnik_do_stronaglowna():
     global app1
-    global liczba_tekst
-    global liczba
-    global czydziala
-    global zegar_zadanie
     print("minutnik_do_stronaglowna destroy")
-    if czydziala == True:
-        text_label.after_cancel(zegar_zadanie)
-    czydziala = False
-    liczba_tekst = ''
-    liczba = 0
     app2.destroy()
+    # app2.forget()
     app1 = None
     app1 = customtkinter.CTkFrame(root, width=800, height=480)
     app1_pokaz(app1)
+    # app1.pack()
+    # app1.tkraise()
+    # app1.pack()
 
 def produkty_do_stronaglowna():
     global app1
+    # global drzewo
     print("produkty_do_stronaglowna destroy")
+    # app2.destroy()
+    # app3.forget()
+    # drzewo.forget()
     drzewo.destroy()
     przycisk_plus.destroy()
     przycisk_minus.destroy()
@@ -53,6 +61,10 @@ def produkty_do_stronaglowna():
     app1 = None
     app1 = customtkinter.CTkFrame(root, width=800, height=480)
     app1_pokaz(app1)
+    # app1.pack()
+    # app1.tkraise()
+    # app1.pack()
+
 
 # funkcja do koloru tła
 def _from_rgb(rgb):
@@ -63,13 +75,20 @@ def app1_zegar(tekst):
     aktualnyczas = strftime('%H:%M:%S')
     print(aktualnyczas)
     tekst.config(text = aktualnyczas, bg=_from_rgb((555, 555, 555)), fg="white")
+    # tekst.after(1000, zegar)
     tekst.after(1000, lambda: app1_zegar(tekst))
 
 def app1_pokaz(ramka):
+    # ramka.pack()
+    # zegar
+    # zegar_label = customtkinter.CTkLabel(app1)
     zegar_label = Label(ramka, font=36)
     zegar_label.place(x=370, y=30)
+
+    # przycisk  do minutnika
     przycisk_1 = customtkinter.CTkButton(ramka, text="Minutnik", width=80, height=55, command=stronaglowna_do_minutnik)
     przycisk_1.place(x=323, y=220)
+    # przycisk do produkty
     przycisk_2 = customtkinter.CTkButton(ramka, text="Produkty", width=80, height=55, command=stronaglowna_do_produkty)
     przycisk_2.place(x=405, y=220)
     app1_zegar(zegar_label)
@@ -77,98 +96,60 @@ def app1_pokaz(ramka):
 
 #APP2--------------------------------------------
 liczba = None
-liczba_tekst = ''
-czydziala = False
-zegar_zadanie = None
-
-def czas_na_sekundy(czas):
-    total_seconds = 0
-    print(czas)
-    try:
-        v = czas[-1]
-        total_seconds += int(v)
-    except:
-        pass
-    try:
-        v = czas[-2]
-        total_seconds += 10*int(v)
-    except:
-        pass
-    try:
-        v = czas[-4:-2]
-        total_seconds += 60*int(v)
-    except:
-        pass
-    try:
-        v = czas[:-4]
-        total_seconds += 60*60*int(v)
-    except:
-        pass
-    print('total total_seconds=',total_seconds)
-    return total_seconds
-
-def minutnik(text_label):
-    global liczba_tekst
-    global liczba
-    global czydziala
-    global zegar_zadanie
-    print("minutnik nacisniety")
-    if czydziala == False:
-        if liczba > 0:
-            print("minutnik odpalam")
-            czydziala = True
-            start_minutnik(text_label)
-    elif czydziala == True:
-        print("minutnik koncze")
-        czydziala = False
-        text_label.after_cancel(zegar_zadanie)
-
-def start_minutnik(text_label):
-    global liczba_tekst
-    global liczba
-    global czydziala
-    global zegar_zadanie
-    print("start minutnik")
-    if czydziala == True:
-        if liczba >= 0:
-            print("start minutnik petla")
-            mins, secs = divmod(liczba, 60)
-            minutniktext = '{:02d}:{:02d}'.format(mins, secs)
-            liczba -=1
-            text_label['text']= minutniktext
-            zegar_zadanie = text_label.after (1000,start_minutnik, text_label)
-        else:
-            print("start minutnik na False")
-            czydziala=False
-            text_label.after_cancel(zegar_zadanie)
-            liczba = 0
-            liczba_tekst = ''
+czydziala = None
+# wyswietlanie czasu
+def Minutnik(text_label):
+	global liczba
+	global czydziala
+	czydziala = True
+	if czydziala == True:
+		if liczba >= 0:
+			mins, secs = divmod(liczba, 60)
+			minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+			liczba -=1
+			text_label['text']= minutniktext
+			# text_label.after (1000,Minutnik)
+			text_label.after (1000,Minutnik, text_label)
+		else:
+			czydziala=False
+			liczba = 0
 
 def ustawczas(t,text_label):
-    global liczba_tekst
     global liczba
     global czydziala
-    if not czydziala:
-        if len(liczba_tekst)<4:
-            print(liczba_tekst)
-            liczba_tekst += t
-            print(liczba_tekst)
-            liczba = czas_na_sekundy(liczba_tekst)
-            mins, secs = divmod(liczba, 60)
-            minutniktext = '{:02d}:{:02d}'.format(mins, secs)
-            text_label['text']= minutniktext
+    czydziala = False
+    liczba+=t
+    print(liczba)
+    mins, secs = divmod(liczba, 60)
+    minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+    # text_label['text']= minutniktext
+    text_label['text']= minutniktext
+
+def zero(text_label):
+    global liczba
+    global czydziala
+    czydziala = False
+    liczba = liczba * 10
+    print(liczba)
+    mins, secs = divmod(liczba, 60)
+    minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+    text_label['text']= minutniktext
+
+def zerozero(text_label):
+    global liczba
+    global czydziala
+    czydziala = False
+    liczba = liczba * 60
+    print(liczba)
+    mins, secs = divmod(liczba, 60)
+    minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+    text_label['text']= minutniktext
 
 def liczbadel(text_label):
-    global liczba_tekst
     global liczba
     global czydziala
-    global zegar_zadanie
-    if czydziala == True:
-        text_label.after_cancel(zegar_zadanie)
     czydziala = False
-    liczba_tekst = ''
     liczba = 0
-    print(liczba_tekst)
     print(liczba)
     mins, secs = divmod(liczba, 60)
     minutniktext = '{:02d}:{:02d}'.format(mins, secs)
@@ -196,33 +177,37 @@ def app2_pokaz(ramka):
     # tu ma byc czas wyswietlany
     text_label = Label(ramka, font=100, bg=_from_rgb((555, 555, 555)), fg="white", text=czas)
     text_label.place(x=380, y=70)
-    Przycisk1 = customtkinter.CTkButton(ramka, text="1", width=szerokosc, height=wys, command=lambda: ustawczas('1',text_label))
+    Przycisk1 = customtkinter.CTkButton(ramka, text="1", width=szerokosc, height=wys, command=lambda: ustawczas(1,text_label))
     Przycisk1.place(x=255, y=200)
-    Przycisk2 = customtkinter.CTkButton(ramka, text="2", width=szerokosc, height=wys, command=lambda: ustawczas('2',text_label))
+    Przycisk2 = customtkinter.CTkButton(ramka, text="2", width=szerokosc, height=wys, command=lambda: ustawczas(2,text_label))
     Przycisk2.place(x=350, y=200)
-    Przycisk3 = customtkinter.CTkButton(ramka, text="3", width=szerokosc, height=wys, command=lambda: ustawczas('3',text_label))
+    Przycisk3 = customtkinter.CTkButton(ramka, text="3", width=szerokosc, height=wys, command=lambda: ustawczas(3,text_label))
     Przycisk3.place(x=445, y=200)
-    Przycisk4 = customtkinter.CTkButton(ramka, text="4", width=szerokosc, height=wys, command=lambda: ustawczas('4',text_label))
+    Przycisk4 = customtkinter.CTkButton(ramka, text="4", width=szerokosc, height=wys, command=lambda: ustawczas(4,text_label))
     Przycisk4.place(x=255, y=270)
-    Przycisk5 = customtkinter.CTkButton(ramka, text="5", width=szerokosc, height=wys, command=lambda: ustawczas('5',text_label))
+    Przycisk5 = customtkinter.CTkButton(ramka, text="5", width=szerokosc, height=wys, command=lambda: ustawczas(5,text_label))
     Przycisk5.place(x=350, y=270)
-    Przycisk6 = customtkinter.CTkButton(ramka, text="6", width=szerokosc, height=wys, command=lambda: ustawczas('6',text_label))
+    Przycisk6 = customtkinter.CTkButton(ramka, text="6", width=szerokosc, height=wys, command=lambda: ustawczas(6,text_label))
     Przycisk6.place(x=445, y=270)
-    Przycisk7 = customtkinter.CTkButton(ramka, text="7", width=szerokosc, height=wys, command=lambda: ustawczas('7',text_label))
+    Przycisk7 = customtkinter.CTkButton(ramka, text="7", width=szerokosc, height=wys, command=lambda: ustawczas(7,text_label))
     Przycisk7.place(x=255, y=340)
-    Przycisk8 = customtkinter.CTkButton(ramka, text="8", width=szerokosc, height=wys, command=lambda: ustawczas('8',text_label))
+    Przycisk8 = customtkinter.CTkButton(ramka, text="8", width=szerokosc, height=wys, command=lambda: ustawczas(8,text_label))
     Przycisk8.place(x=350, y=340)
-    Przycisk9 = customtkinter.CTkButton(ramka, text="9", width=szerokosc, height=wys, command=lambda: ustawczas('9',text_label))
+    Przycisk9 = customtkinter.CTkButton(ramka, text="9", width=szerokosc, height=wys, command=lambda: ustawczas(9,text_label))
     Przycisk9.place(x=445, y=340)
-    Przycisk00 = customtkinter.CTkButton(ramka, text="00s", width=szerokosc, height=wys, command=lambda: ustawczas('00',text_label))
+    # Przycisk00 = customtkinter.CTkButton(ramka, text="00s", width=szerokosc, height=wys, command=zerozero)
+    Przycisk00 = customtkinter.CTkButton(ramka, text="00s", width=szerokosc, height=wys, command=lambda: zerozero(text_label))
     Przycisk00.place(x=255, y=410)
-    Przycisk0 = customtkinter.CTkButton(ramka, text="0", width=szerokosc, height=wys, command=lambda: ustawczas('0',text_label))
+    # Przycisk0 = customtkinter.CTkButton(ramka, text="0", width=szerokosc, height=wys, command=zero)
+    Przycisk0 = customtkinter.CTkButton(ramka, text="0", width=szerokosc, height=wys, command=lambda: zero(text_label))
     Przycisk0.place(x=350, y=410)
+    # PrzyciskBack = customtkinter.CTkButton(ramka, text="del", width=szerokosc, height=wys, command=liczbadel)
     PrzyciskBack = customtkinter.CTkButton(ramka, text="del", width=szerokosc, height=wys, command=lambda: liczbadel(text_label))
     PrzyciskBack.place(x=445, y=410)
-    PMinutnik = customtkinter.CTkButton(ramka, text="start", width=szerokosc, height=wys, command=lambda: minutnik(text_label))
+    # PMinutnik = customtkinter.CTkButton(ramka, text="start", width=szerokosc, height=wys, command=Minutnik)
+    PMinutnik = customtkinter.CTkButton(ramka, text="start", width=szerokosc, height=wys, command=lambda: Minutnik(text_label))
     PMinutnik.place(x=540, y=410)
-    PrzyciskPowrot = customtkinter.CTkButton(ramka, text="<-", width=50, height=40, command=lambda: minutnik_do_stronaglowna(text_label))
+    PrzyciskPowrot = customtkinter.CTkButton(ramka, text="<-", width=50, height=40, command=minutnik_do_stronaglowna)
     PrzyciskPowrot.place(x=0, y=0)
     ramka.pack()
 
@@ -356,6 +341,7 @@ def app3_pokaz(ramka):
     przycisk_odswiez.place(x=393, y=285)
     przycisk_dodajprodukt = customtkinter.CTkLabel(ramka, text="Dodaj produkt:")
     przycisk_dodajprodukt.pack()
+    # description = customtkinter.CTkLabel(ramka, text="Dodaj produkt:").pack()
     wpis = customtkinter.CTkEntry(ramka, width=80)
     wpis.pack()
     przycisk_dodaj = customtkinter.CTkButton(master=ramka, text="dodaj", width=35, height=30, command=dodawanie)
@@ -377,7 +363,24 @@ if __name__ == "__main__":
     root.geometry("800x480")
     #tworze ramki
     app1 = customtkinter.CTkFrame(root, width=800, height=480)
+    app2 = customtkinter.CTkFrame(root, width=800, height=480)
+    app3 = customtkinter.CTkFrame(root, width=800, height=480)
+    #pokazuje ekran startowy:
     app1_pokaz(app1)
+    # app2_pokaz(app2)
+    # app3_pokaz(root)
+    # app1.pack()
+    # app2.pack()
+    # app3.pack()
 
+    # drzewo = ttk.Treeview(app3, columns=("kolumna1", "kolumna2"), show="headings")
+    # drzewo.heading("#1", text="Nazwa produktu")
+    # drzewo.heading("#2", text="Ilość produktu")
+    # ttk.Style().configure("Treeview", background="black", foreground="white", fieldbackground="dark")
+    # sb = Scrollbar(orient=VERTICAL)
+    # drzewo.config(yscrollcommand=sb.set)
+    # sb.config(command=drzewo.yview)
+    # drzewo.pack()
+    # app3.pack()
 
     root.mainloop()
