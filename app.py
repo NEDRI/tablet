@@ -14,7 +14,6 @@ def stronaglowna_do_minutnik():
     app2 = customtkinter.CTkFrame(root, width=800, height=480)
     app2_pokaz(app2)
 
-
 def stronaglowna_do_produkty():
     global drzewo
     print("stronaglowna_do_produkty destroy")
