@@ -1,0 +1,26 @@
+tekst_wejsciowy="891"
+print(tekst_wejsciowy)
+tekst_odwrocony=tekst_wejsciowy[::-1]
+print(tekst_odwrocony)
+
+#x3x2:x1x0
+try:
+    x0=tekst_odwrocony[0]
+except:
+    x0="0"
+try:
+    x1=tekst_odwrocony[1]
+except:
+    x1="0"
+try:
+    x2=tekst_odwrocony[2]
+except:
+    x2="0"
+try:
+    x3=tekst_odwrocony[3]
+except:
+    x3="0"
+print(tekst_odwrocony)
+print(x3,x2,x1,x0)
+tekst_wyjsciowy=x3+x2+":"+x1+x0
+print(tekst_wyjsciowy)

@@ -155,10 +155,36 @@ def ustawczas(t,text_label):
             liczba_tekst += t
             print(liczba_tekst)
             liczba = czas_na_sekundy(liczba_tekst)
-            mins, secs = divmod(liczba, 60)
-            minutniktext = '{:02d}:{:02d}'.format(mins, secs)
-            # text_label['text']= liczba_tekst
-            text_label['text']= minutniktext
+            
+            #sposob1
+            # mins, secs = divmod(liczba, 60)
+            # minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+            # text_label['text']= minutniktext
+            
+            
+            #sposob2 x3x2:x1x0
+            liczba_tekst_odwrocony=liczba_tekst[::-1]
+            print(liczba_tekst_odwrocony)
+            try:
+                x0=liczba_tekst_odwrocony[0]
+            except:
+                x0="0"
+            try:
+                x1=liczba_tekst_odwrocony[1]
+            except:
+                x1="0"
+            try:
+                x2=liczba_tekst_odwrocony[2]
+            except:
+                x2="0"
+            try:
+                x3=liczba_tekst_odwrocony[3]
+            except:
+                x3="0"
+            print(x3,x2,x1,x0)
+            liczba_tekst_wyswietl=x3+x2+":"+x1+x0
+            print(liczba_tekst_wyswietl)
+            text_label['text']= liczba_tekst_wyswietl
 
 def liczbadel(text_label):
     global liczba_tekst
