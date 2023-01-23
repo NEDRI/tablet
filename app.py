@@ -6,6 +6,8 @@ from time import strftime
 from tkinter import ttk
 import sqlite3
 
+import time
+
 def stronaglowna_do_minutnik():
     global app2
     print("stronaglowna_do_minutnik destroy")
@@ -155,6 +157,7 @@ def ustawczas(t,text_label):
             liczba = czas_na_sekundy(liczba_tekst)
             mins, secs = divmod(liczba, 60)
             minutniktext = '{:02d}:{:02d}'.format(mins, secs)
+            # text_label['text']= liczba_tekst
             text_label['text']= minutniktext
 
 def liczbadel(text_label):
