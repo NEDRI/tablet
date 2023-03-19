@@ -5,7 +5,6 @@ from tkinter import *
 from time import strftime
 from tkinter import ttk
 import sqlite3
-
 import time
 
 def stronaglowna_do_minutnik():
